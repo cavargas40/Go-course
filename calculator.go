@@ -29,6 +29,12 @@ func main() {
 	fmt.Println("Order 2")
 	fmt.Println(caps(4, "€"))
 
+
+	fmt.Println("----------------")
+	fmt.Println("----------------")
+	pants("Red", "long", "without pockets", "Nike")
+	
+
 }
 
 func operation(number1 float32, number2 float32, operator string) float32 {
@@ -83,4 +89,10 @@ func caps(order float32, currency string) (string, string, float32){
 	}
 
 	return "The price of the order is", currency, price()
+}
+
+func pants(attritutes ...string){
+	for _, attritute := range attritutes{
+		fmt.Println(attritute)
+	}
 }
