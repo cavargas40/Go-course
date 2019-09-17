@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"log"
 	"github.com/gorilla/mux"
+	"encoding/json"
 )
 
 func main(){
@@ -28,7 +29,13 @@ func Contact(w http.ResponseWriter, r *http.Request){
 }
 
 func MovieList(w http.ResponseWriter, r *http.Request){
-	fmt.Fprintf(w, "This is the Movies List")
+	movies := Movies{
+		Movie{"Limitless", 2013, "Unknown"},
+		Movie{"Batman Begins", 1999, "Unknown"},
+		Movie{"Fast & Furious", 1999, "Your Mum"},
+	}
+	//fmt.Fprintf(w, "This is the Movies List")
+	json.NewEncoder(w).Encode(movies)
 }
 
 func MovieShow(w http.ResponseWriter, r *http.Request){
