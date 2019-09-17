@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"strconv"
+	//"os"
+	//"strconv"
 )
 
 func main() {
@@ -26,11 +26,32 @@ func main() {
 	}
 	*/
 
+	/*
 	//go run program.go 1
 	number,_ := strconv.Atoi(os.Args[1])
 	if number%2 == 0 {
 		fmt.Println("Pair number")
 	} else {
 		fmt.Println("Odd number")
+	}
+	*/
+
+	//loops
+	max := 26
+	for i := 1; i <= max; i++{
+		if i%2 == 0 {
+			fmt.Println("Pair number:", i)
+		} else {
+			fmt.Println("Odd number:", i)
+		}
+		
+	}
+
+	fmt.Println("--------------------------------------")
+
+	movies := []string{"Fast & Furious", "Fight Club", "Avengers", "Brazzers" } 
+
+	for _, movie := range movies {
+		fmt.Println(movie)
 	}
 }
