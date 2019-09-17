@@ -16,9 +16,10 @@ type Routes []Route
 
 var routes = Routes{
 	Route{"Index", "GET", "/", Index},
-	Route{"MovieList", "GET", "/movies", MovieList},
+	Route{"MoviesList", "GET", "/movies", MoviesList},
 	Route{"MovieShow", "GET", "/movie/{id}", MovieShow},
 	Route{"Contact", "GET", "/contact", Contact},
+	Route{"MovieAdd", "POST", "/movie", MovieAdd},
 }
 
 func CustomRouter() *mux.Router {
