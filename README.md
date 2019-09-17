@@ -28,3 +28,7 @@ Format document
 Build Program - generates an executable file
     - `$ go build <filename>.go`
 
+Install go package
+    - `$ go get -u <packagename>`
+    - `$ go get -u github.com/gorilla/mux`
+    
