@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 	//"os"
 	//"strconv"
 )
@@ -53,5 +54,21 @@ func main() {
 
 	for _, movie := range movies {
 		fmt.Println(movie)
+	}
+
+	//switch case
+
+	moment := time.Now()
+	today := moment.Weekday()
+
+	switch today {
+	case 0:
+		fmt.Println("Today is Sunday")
+	case 1:
+		fmt.Println("Today is Monday")
+	case 2:
+		fmt.Println("Today is Tuesday")
+	default: 
+		fmt.Println("Is another day")
 	}
 }
