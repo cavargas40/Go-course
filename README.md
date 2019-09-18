@@ -31,4 +31,9 @@ Build Program - generates an executable file
 Install go package
     - `$ go get -u <packagename>`
     - `$ go get -u github.com/gorilla/mux`
-    
+
+Install mgo
+    - `$ go get gopkg.in/mgo.v2`
+
+Install mbson
+    - `$ go get gopkg.in/mgo.v2/bson`

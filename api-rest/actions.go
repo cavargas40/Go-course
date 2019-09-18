@@ -5,14 +5,29 @@ import (
 	"fmt"
 	"github.com/gorilla/mux"
 	"net/http"
-	"log"
+	//"log"
+	"gopkg.in/mgo.v2"
+	//"gopkg.in/mgo.v2/bson"
 )
+
+var collection = getMongoSession().DB("GoCourse").C("movies")
 
 var movies = Movies{
 	Movie{"Limitless", 2013, "Unknown"},
 	Movie{"Batman Begins", 1999, "Unknown"},
 	Movie{"Fast & Furious", 1999, "Your Mum"},
 }
+
+func getMongoSession() *mgo.Session {
+	session, err := mgo.Dial("mongodb://localhost")
+
+	if err != nil{
+		panic(err)
+	}
+
+	return session
+}
+
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello World from my web server with GO")
@@ -47,6 +62,15 @@ func MovieAdd(w http.ResponseWriter, r *http.Request){
 
 	defer r.Body.Close()
 
-	log.Println(movieData)
-	movies = append(movies, movieData)
+	err = collection.Insert(movieData)
+
+	if err != nil {
+		w.WriteHeader(500)
+		return
+	}
+	
+	//log.Println(movieData)
+	json.NewEncoder(w).Encode(movieData)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(200)
 }
