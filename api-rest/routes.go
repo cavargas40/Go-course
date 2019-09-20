@@ -20,6 +20,8 @@ var routes = Routes{
 	Route{"MovieShow", "GET", "/movie/{id}", MovieShow},
 	Route{"Contact", "GET", "/contact", Contact},
 	Route{"MovieAdd", "POST", "/movie", MovieAdd},
+	Route{"MovieUpdate", "PUT", "/movie/{id}", MovieUpdate},
+	Route{"MovieRemove", "DELETE", "/movie/{id}", MovieRemove},
 }
 
 func CustomRouter() *mux.Router {
